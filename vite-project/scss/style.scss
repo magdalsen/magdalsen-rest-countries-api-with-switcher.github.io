@@ -1,0 +1,56 @@
+@import 'config';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 200px 0 200px;
+}
+
+.container {
+    display: grid;
+    gap: 50px;
+    grid-template-areas:
+    'myArea myArea myArea myArea'
+    '. . . .'
+    '. . . .';
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: 50px 180px 180px;
+}
+
+body {
+    background-color: $very-light-gray-light-mode-bg;
+}
+
+#app {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.country-box {
+    border: solid 1px;
+    border-color: black;
+}
+
+.country-inputs {
+    grid-area: myArea;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
