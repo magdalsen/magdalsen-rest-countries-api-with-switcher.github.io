@@ -2,6 +2,7 @@ import '../css/style.css'
 
 const container = document.querySelector<HTMLDivElement>('.container');
 const select = document.querySelector<HTMLSelectElement>('#countries');
+const search = document.querySelector<HTMLInputElement>('#search');
 
 // start page
 const arrCountries: string[] = ['germany', 'usa', 'brazil', 'iceland', 'afghan', 'Åland', 'albania', 'algeria'];
@@ -64,8 +65,8 @@ const dataBoxAll = (json: DataAll) => {
     `
 }
 
-const selectFn = (output: string) => {
-  fetch(`https://restcountries.com/v3.1/region/${output}`)
+const selectFn = (url: string, output: string) => {
+  fetch(`${url}${output}`)
 .then((response) => response.json())
 .then((json:[]) => {
   if(container) {
@@ -79,11 +80,27 @@ const selectFn = (output: string) => {
 if(select) {
   select.addEventListener('change', function() {
     const output = select.options[select.selectedIndex].value;
+    const url = 'https://restcountries.com/v3.1/region/';
     if (container) {
       container.innerHTML = '';
     }
-    selectFn(output);
+    selectFn(url, output);
   })
 }
 
 // input (search)
+if(search) {
+    search.addEventListener('change', function() {
+    const output = search.value;
+    const url = 'https://restcountries.com/v3.1/name/';
+    if (container) {
+      container.innerHTML = '';
+    }
+    if (output === '' || output === ',' || output === '.' || output === ';') {
+      container!.style.display = 'block';
+      container!.innerHTML = "Search by country name! Don't use special chars.";
+      return
+    }
+    selectFn(url, output);
+  })
+}
