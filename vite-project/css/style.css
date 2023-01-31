@@ -21,7 +21,7 @@ ul {
   gap: 50px;
   grid-template-areas: "myArea myArea myArea myArea" ". . . ." ". . . .";
   grid-template-columns: repeat(4, 230px);
-  grid-template-rows: 50px 280px 280px;
+  grid-template-rows: 280px 280px;
 }
 
 body {
@@ -38,11 +38,15 @@ body {
 }
 
 .country-inputs {
-  grid-area: myArea;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  width: 100%;
+}
+
+input, select {
+  margin: 20px 200px 20px 200px;
 }
 
 .data__box {
