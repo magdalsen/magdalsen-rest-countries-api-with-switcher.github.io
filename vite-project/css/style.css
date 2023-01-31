@@ -4,12 +4,6 @@
   padding: 0;
 }
 
-.header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
 ul {
   list-style: none;
   display: flex;
@@ -18,28 +12,29 @@ ul {
   margin: 20px 200px 0 200px;
 }
 
+.header {
+  width: 100%;
+}
+
 .container {
   display: grid;
   gap: 50px;
   grid-template-areas: "myArea myArea myArea myArea" ". . . ." ". . . .";
-  grid-template-columns: repeat(4, 200px);
-  grid-template-rows: 50px 180px 180px;
+  grid-template-columns: repeat(4, 230px);
+  grid-template-rows: 50px 280px 280px;
 }
 
 body {
+  font-family: "Nunito Sans", sans-serif;
   background-color: hsl(0deg, 0%, 98%);
 }
 
 #app {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100vh;
-}
-
-.country-box {
-  border: solid 1px;
-  border-color: black;
+  flex-direction: column;
 }
 
 .country-inputs {
@@ -48,6 +43,18 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+}
+
+.data__box {
+  border: solid 1px;
+  border-color: black;
+}
+
+.data__box--flag {
+  float: left;
+  width: 228px;
+  height: 150px;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=style.css.map */
