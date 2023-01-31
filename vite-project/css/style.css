@@ -49,6 +49,10 @@ input, select {
   margin: 20px 200px 20px 200px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .data__box {
   border: solid 1px;
   border-color: black;
