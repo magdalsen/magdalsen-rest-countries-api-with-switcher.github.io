@@ -99,7 +99,7 @@ const detailsData = (el: DataAll) => {
           <div class="details__data"><span>Capital:</span> ${el.capital}</div>
         </div>
         <div>
-          <div class="details__data"><span>Top level domain:</span> ${el.tld}</div>
+          <div class="details__data"><span>Top Level Domain:</span> ${el.tld}</div>
           <div class="details__data"><span>Currencies:</span> ${toArrayCurrencies[0][0]}</div>
           <div class="details__data"><span>Languages:</span> ${newArrLanguages}</div>
         </div>
