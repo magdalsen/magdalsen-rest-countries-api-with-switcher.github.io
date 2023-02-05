@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/magdalsen-rest-countries-api-with-switcher.github.io/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
+    <title>Vite + TS</title>
+    <script type="module" crossorigin src="/magdalsen-rest-countries-api-with-switcher.github.io/assets/index-dbb16e6a.js"></script>
+    <link rel="stylesheet" href="/magdalsen-rest-countries-api-with-switcher.github.io/assets/index-8e0c38e6.css">
+  </head>
+  <body>
+    <main id="app">
+      <section class="header">
+        <ul>
+          <li><h1><a href="/">Where is the world?</a></h1></li>
+          <li class="dark__mode" id="dark__mode"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+            <path d="M8 0c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zM2 8c0-3.314 2.686-6 6-6v12c-3.314 0-6-2.686-6-6z"></path>
+            </svg><span>&nbsp; Dark Mode</span></li>
+        </ul>
+      </section>
+      <section class="country-inputs">
+          <input type="search" id="search" name="search" placeholder="Search for a country..." />
+          <select name="countries-select" id="countries">
+            <option value="africa">Africa</option>
+            <option value="america">America</option>
+            <option value="asia">Asia</option>
+            <option value="europe">Europe</option>
+            <option value="oceania">Oceania</option>
+          </select>
+      </section>
+      <section class="container"></section>
+    </main>
+  </body>
+</html>
