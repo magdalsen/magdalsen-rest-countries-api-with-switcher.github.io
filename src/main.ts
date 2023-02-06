@@ -1,9 +1,9 @@
 import '../css/style.css'
+import type {Data,DataAll} from "./types"
 
 const container = document.querySelector<HTMLDivElement>('.container');
 const select = document.querySelector<HTMLSelectElement>('#countries');
 const search = document.querySelector<HTMLInputElement>('#search');
-const box = document.createElement('section');
 const inputs = document.querySelector('.country-inputs');
 const darkMode = document.querySelector('.dark__mode');
 
@@ -17,28 +17,9 @@ if (darkMode) {
 
 // start page
 const arrCountries: string[] = ['germany', 'usa', 'brazil', 'iceland', 'afghan', 'Åland', 'albania', 'algeria'];
-type Data = { 
-  languages: { [s: string]: unknown; } | ArrayLike<unknown>; //jaki typ?
-  subregion: string
-  flags: {
-    svg: HTMLImageElement;
-  }
-  name: { 
-    common: string; 
-    nativeName: {
-      official: any;
-    }
-  };
-  ccn3: string;
-  population: number;
-  region: string;
-  capital: string[];
-  tld: [];
-  currencies: [];
-  borders: [];
-}[]
 
 const dataBox = (json: Data) => {
+  const box = document.createElement('section');
   box.classList.add('data__box');
   box.innerHTML = `
     <img src=${json[0].flags.svg} class="data__box--flag" />
@@ -50,13 +31,19 @@ const dataBox = (json: Data) => {
   return box;
 }
 
+/*
+const promises=arrCountries.map((country)=>fetch(`https://restcountries.com/v3.1/name/${country}`)
+Promise.all(promises).then([])
+*/
 arrCountries.map((country) => {
+  //Promise.all()
    fetch(`https://restcountries.com/v3.1/name/${country}`)
   .then((response) => response.json())
   .then((json: Data) => {
     if(container) {
-      box.setAttribute('id', json[0].ccn3);
-      container.appendChild(dataBox(json).cloneNode(true));
+      const newBox=dataBox(json)
+      newBox.setAttribute('id', json[0].ccn3);
+      container.appendChild(newBox);
       details(json);
     }
   })
@@ -65,7 +52,7 @@ arrCountries.map((country) => {
 // details
 const borderCountries = (el: DataAll) => {
   let borderArr = el.borders;
-  if (el.borders === undefined) {
+  if (!el.borders) {
     return 'none';
   } else {
     return borderArr.map(el => {
@@ -78,7 +65,7 @@ const detailsData = (el: DataAll) => {
   const toArrayNativeName = Object.entries(el.name.nativeName);
   const toArrayCurrencies = Object.entries(el.currencies);
   const toArrayLanguages = Object.entries(el.languages);
-  let newArrLanguages: unknown[] = []; //jaki typ?
+  let newArrLanguages: string[] = []; //jaki typ?
   toArrayLanguages.forEach(el => {
     return newArrLanguages.push(el[1])
   });
@@ -114,7 +101,9 @@ const detailsData = (el: DataAll) => {
 
 const details = (json: Data) => {
   json.forEach(el => {
-    document.getElementById(el.ccn3)?.addEventListener('click', function() {
+    const ccn3=document.getElementById(el.ccn3);
+    if(ccn3){
+      ccn3.addEventListener('click', function() {
 
       // przykład:
       // const list = ['first', 'second', 'third'];
@@ -122,36 +111,18 @@ const details = (json: Data) => {
       
       if (inputs) inputs.innerHTML = '';
       if (container) {
-        container.classList.toggle('details__container');
+        if(!container.classList.contains('details__container')){
+          container.classList.add('details__container');
+        }
         container.innerHTML = detailsData(el);
       }
     })
+    }
   })
 }
 
-// select
-interface DataAll {
-  languages: { [s: string]: unknown; } | ArrayLike<unknown>;
-  subregion: string;
-  flags: {
-    svg: HTMLImageElement;
-  }
-  name: { 
-    common: string; 
-    nativeName: {
-      official: any;
-    }
-  };
-  ccn3: string;
-  population: number;
-  region: string;
-  capital: string[];
-  tld: [];
-  currencies: [];
-  borders: [];
-}[]
-
 const dataBoxAll = (json: DataAll) => {
+  const box=document.createElement("section")
   box.classList.add('data__box');
   box.innerHTML = `
        <img src=${json.flags.svg} class="data__box--flag" />
@@ -169,8 +140,9 @@ const selectFn = (url: string, output: string) => {
   .then((json: Data) => {
   if(container) {
     json.map((el) => {
+      const box=dataBoxAll(el)
       box.setAttribute('id', el.ccn3);
-      container.appendChild(dataBoxAll(el).cloneNode(true));
+      container.appendChild(box);
       details(json);
     })
   }
