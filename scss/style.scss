@@ -215,6 +215,9 @@ span {
     svg {
         fill: $white-dark-mode-text-light-mode-elements;
     }
+    .header {
+        background-color: $dark-blue;
+    }
   }
 
   @media (max-width: 375px) {

@@ -202,6 +202,9 @@ span {
 .dark-mode svg {
   fill: hsl(0deg, 0%, 100%);
 }
+.dark-mode .header {
+  background-color: hsl(209deg, 23%, 22%);
+}
 
 @media (max-width: 375px) {
   .container {
