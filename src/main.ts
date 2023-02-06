@@ -104,7 +104,7 @@ const detailsData = (el: DataAll) => {
           <div class="details__data"><span>Languages:</span> ${newArrLanguages}</div>
         </div>
       </div>
-      <div>
+      <div id="borders__box">
         <div class="details__data details__data--border"><span>Border countries:</span> ${borderCountries(el)}</div>
       </div>
       </section>
