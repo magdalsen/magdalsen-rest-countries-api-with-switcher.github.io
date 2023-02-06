@@ -8,9 +8,6 @@
   background-color: hsl(207deg, 26%, 17%);
   color: rgb(246, 233, 233);
 }
-.dark-mode h1 > a {
-  color: rgb(246, 233, 233);
-}
 .dark-mode .data__box {
   background-color: hsl(209deg, 23%, 22%);
 }
@@ -19,6 +16,9 @@
 }
 .dark-mode .header {
   background-color: hsl(209deg, 23%, 22%);
+}
+.dark-mode .header h1 > a {
+  color: rgb(246, 233, 233);
 }
 
 * {
