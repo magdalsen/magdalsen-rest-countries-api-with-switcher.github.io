@@ -1,21 +1,47 @@
+#dark__mode {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.dark-mode {
+  background-color: hsl(207deg, 26%, 17%);
+  color: rgb(246, 233, 233);
+}
+.dark-mode h1 > a {
+  color: rgb(246, 233, 233);
+}
+.dark-mode .data__box {
+  background-color: hsl(209deg, 23%, 22%);
+}
+.dark-mode svg {
+  fill: hsl(0deg, 0%, 100%);
+}
+.dark-mode .header {
+  background-color: hsl(209deg, 23%, 22%);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-ul {
+.header {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.42) 0px 0px 7px;
+  background-color: hsl(0deg, 0%, 100%);
+}
+.header ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px 200px 20px 200px;
 }
-
-.header {
-  width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.42) 0px 0px 7px;
-  background-color: hsl(0deg, 0%, 100%);
+.header ul h1 > a {
+  color: rgb(26, 24, 24);
+  text-decoration: none;
 }
 
 .container {
@@ -46,17 +72,15 @@ body {
   align-items: flex-end;
   width: 100%;
 }
-.country-inputs input, .country-inputs select {
-  margin: 20px 150px 20px 150px;
-}
 .country-inputs input {
   width: 300px;
   height: 45px;
-  padding: 10px 10px 10px 45px;
   font-family: "Nunito Sans", sans-serif;
   box-shadow: rgba(0, 0, 0, 0.42) 0px 0px 7px;
   border: 0 solid #ccc;
   border-radius: 5px;
+  margin: 20px 150px 20px 150px;
+  padding: 10px 10px 10px 45px;
   background-image: url(../public/135-search.svg);
   background-repeat: no-repeat;
   background-position: center left 1rem;
@@ -65,17 +89,13 @@ body {
 .country-inputs select {
   width: 300px;
   height: 45px;
-  padding: 10px 20px 10px 20px;
   font-family: "Nunito Sans", sans-serif;
   box-shadow: rgba(0, 0, 0, 0.42) 0px 0px 7px;
   border: 0 solid #ccc;
   border-radius: 5px;
+  margin: 20px 150px 20px 150px;
+  padding: 10px 20px 10px 20px;
   width: 180px;
-}
-
-h1 > a {
-  color: rgb(26, 24, 24);
-  text-decoration: none;
 }
 
 .data__box {
@@ -110,10 +130,6 @@ h1 > a {
   object-fit: cover;
 }
 
-.details__data {
-  margin: 8px;
-}
-
 .details__container {
   display: block;
   margin: 20px 0 0 0;
@@ -133,6 +149,13 @@ h1 > a {
   width: 118px;
   height: 37px;
 }
+.details__container--flag button .back__button {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
 
 span {
   font-weight: 600;
@@ -149,8 +172,13 @@ span {
   font-weight: 800;
   margin: 0 0 20px 8px;
 }
-.details__container--data .details__data {
+.details__container--data .details__data--data {
+  display: flex;
+  font-size: 13px;
+}
+.details__container--data .details__data--data .details__data {
   font-size: 15px;
+  margin: 8px;
 }
 .details__container--data .details__data--right {
   margin: 0 50px 0 80px;
@@ -168,42 +196,6 @@ span {
   background-color: hsl(0deg, 0%, 98%);
   font-size: 15px;
   margin: 2px;
-}
-
-.details__data--data {
-  display: flex;
-  font-size: 13px;
-}
-
-.back__button {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #000000;
-}
-
-#dark__mode {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.dark-mode {
-  background-color: hsl(207deg, 26%, 17%);
-  color: rgb(246, 233, 233);
-}
-.dark-mode h1 > a {
-  color: rgb(246, 233, 233);
-}
-.dark-mode .data__box {
-  background-color: hsl(209deg, 23%, 22%);
-}
-.dark-mode svg {
-  fill: hsl(0deg, 0%, 100%);
-}
-.dark-mode .header {
-  background-color: hsl(209deg, 23%, 22%);
 }
 
 @media (max-width: 375px) {

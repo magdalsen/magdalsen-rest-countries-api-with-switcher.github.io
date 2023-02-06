@@ -1,0 +1,23 @@
+#dark__mode {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.dark-mode {
+    background-color: $very-dark-blue-dark-mode-bg;
+    color: rgb(246, 233, 233);
+    h1 > a {
+        color: rgb(246, 233, 233);
+    }
+    .data__box {
+        background-color: $dark-blue;
+    }
+
+    svg {
+        fill: $white-dark-mode-text-light-mode-elements;
+    }
+    .header {
+        background-color: $dark-blue;
+    }
+  }
